@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url:
+    password:
+    username:
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
