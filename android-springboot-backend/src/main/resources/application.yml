@@ -8,3 +8,16 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: create
+api:
+  info:
+    title: Manga API
+    version: 1.0.0
+    description: Manga API is a web service that provides online information about mangas.
+  contact:
+    email: mario-dacosta@hotmail.fr
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  uri:
+    paths:
+      hotel: /api/v1/mangas
