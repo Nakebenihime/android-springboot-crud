@@ -6,8 +6,12 @@ import java.util.Optional;
 public interface IMangaService<Manga> {
 
     Manga save(Manga t);
-    Optional<Manga> findById(long id);
-    void delete(Manga Manga);
+
     List<Manga> findAll();
+
+    Manga update(Manga manga);
+
     void deleteById(long id);
+
+    Optional<Manga> findById(long id);
 }
