@@ -169,7 +169,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                         .timestamp(LocalDateTime.now())
                         .status(HttpStatus.NOT_FOUND)
                         .code(HttpStatus.NOT_FOUND.value())
-                        .message("HOTEL NOT FOUND")
+                        .message("MANGAS NOT FOUND")
                         .errors(Collections.singletonList(ex.getLocalizedMessage()))
                         .uri(request.getDescription(false).substring(4))
                         .build();

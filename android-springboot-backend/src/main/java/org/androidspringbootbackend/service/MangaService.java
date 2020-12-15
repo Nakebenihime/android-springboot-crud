@@ -1,11 +1,11 @@
 package org.androidspringbootbackend.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.androidspringbootbackend.exception.NotFoundException;
 import org.androidspringbootbackend.model.Manga;
 import org.androidspringbootbackend.repository.MangaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.webjars.NotFoundException;
 
 import java.util.List;
 import java.util.Optional;

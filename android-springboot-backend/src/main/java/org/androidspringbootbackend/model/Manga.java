@@ -5,22 +5,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-public class MangaModel {
+@Table(name = "mangas")
+public class Manga {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "author")
     private String author;
+    @Column(name = "year")
     private int year;
+    @Column(name = "status")
     private boolean status;
 }
