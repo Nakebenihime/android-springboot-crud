@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url:
-    password:
-    username:
+    url: ${JDBC_DATABASE_URL}
+    password: ${JDBC_DATABASE_PASSWORD}
+    username: ${JDBC_DATABASE_PASSWORD}
   jpa:
     show-sql: true
     generate-ddl: true
@@ -20,4 +20,4 @@ api:
     url: https://opensource.org/licenses/MIT
   uri:
     paths:
-      hotel: /api/v1/mangas
+      mangas: /api/v1/mangas
