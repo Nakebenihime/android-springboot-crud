@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondaryActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image_view_detail"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        tools:srcCompat="@tools:sample/avatars"
+        />
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        />
+
+    <EditText
+        android:id="@+id/author"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        />
+
+    <EditText
+        android:id="@+id/year"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        />
+    <EditText
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:text="TextView"
+        />
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:textColor="@android:color/white"
+        android:text="SAVE"
+        />
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EE594E"
+        android:textColor="@android:color/white"
+        android:text="DELETE"
+        />
+
+</LinearLayout>
