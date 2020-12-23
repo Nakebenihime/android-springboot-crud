@@ -39,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
         this.findAll();
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
-
     public void findAll() {
         Call<List<Manga>> call = service.findAll();
         call.enqueue(new Callback<List<Manga>>() {
