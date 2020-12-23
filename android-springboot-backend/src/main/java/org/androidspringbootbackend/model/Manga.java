@@ -25,4 +25,6 @@ public class Manga {
     private int year;
     @Column(name = "status")
     private boolean status;
+    @Column(name = "url")
+    private String URL;
 }
