@@ -1,0 +1,63 @@
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  paths:
+    - $CI_PROJECT_DIR/.m2/repository
+
+variables:
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+maven_build_job:
+  stage: build
+  image: maven:3.6.3-jdk-11-slim
+  only:
+    changes:
+      - android-springboot-backend/**/*
+  script:
+    - mvn $MAVEN_CLI_OPTS clean package -DskipTests
+  artifacts:
+    when: on_success
+    expire_in: 50 min
+    paths:
+      - android-springboot-backend/target/*.jar
+
+maven_test_job:
+  stage: test
+  only:
+    changes:
+      - android-springboot-backend/**/*
+  script:
+    - mvn $MAVEN_CLI_OPTS test
+
+deploy_qualification_job:
+  stage: deploy
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_QUALIFICATION --api-key=${HEROKU_API_KEY}
+  environment:
+    name: qualification
+    url: $HEROKU_APPHOST
+  only:
+    - master
+
+deploy_production_job:
+  stage: deploy
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+  environment:
+    name: production
+    url: $HEROKU_APP_HOST
+  when: manual
+  only:
+    - master
