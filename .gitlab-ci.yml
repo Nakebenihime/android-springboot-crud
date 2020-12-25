@@ -18,7 +18,7 @@ maven_build_job:
     changes:
       - android-springboot-backend/**/*
   script:
-    - mvn $MAVEN_CLI_OPTS clean package -DskipTests
+    - mvn $MAVEN_CLI_OPTS clean package -f ./android-springboot-backend/pom.xml -DskipTests
   artifacts:
     when: on_success
     expire_in: 50 min
@@ -31,7 +31,7 @@ maven_test_job:
     changes:
       - android-springboot-backend/**/*
   script:
-    - mvn $MAVEN_CLI_OPTS test
+    - mvn $MAVEN_CLI_OPTS test -f ./android-springboot-backend/pom.xml
 
 deploy_qualification_job:
   stage: deploy
@@ -40,7 +40,7 @@ deploy_qualification_job:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=$HEROKU_APP_QUALIFICATION --api-key=${HEROKU_API_KEY}
+    - dpl --provider=heroku --app=$HEROKU_APP_QUALIFICATION --api-key=$HEROKU_API_KEY
   environment:
     name: qualification
     url: $HEROKU_APPHOST
