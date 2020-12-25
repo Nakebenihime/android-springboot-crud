@@ -4,10 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import org.androidspringbootfrontend.adapter.CustomAdapter;
+import org.androidspringbootfrontend.api.MangaService;
+import org.androidspringbootfrontend.api.Retrofit2Client;
+import org.androidspringbootfrontend.model.Manga;
 
 import java.util.List;
 
@@ -17,9 +22,9 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    final MangaService service = Retrofit2Client.createService(MangaService.class);
     CustomAdapter customAdapter;
     ListView view;
-    final MangaService service = ServiceGenerator.createService(MangaService.class);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Manga>>() {
             @Override
             public void onResponse(Call<List<Manga>> call, Response<List<Manga>> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     List<Manga> mangas = response.body();
                     assert mangas != null;
                     customAdapter = new CustomAdapter(getApplicationContext(), mangas);
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Manga>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

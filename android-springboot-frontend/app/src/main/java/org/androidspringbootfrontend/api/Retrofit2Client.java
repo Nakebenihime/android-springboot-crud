@@ -1,11 +1,11 @@
-package org.androidspringbootfrontend;
+package org.androidspringbootfrontend.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ServiceGenerator {
+import static org.androidspringbootfrontend.constant.Constant.BASE_URL;
 
-    public static final String BASE_URL = "http://192.168.1.23:8080/api/v1/";
+public class Retrofit2Client {
 
     public static Retrofit.Builder builder = new Retrofit.Builder()
             .baseUrl(BASE_URL)

@@ -1,4 +1,6 @@
-package org.androidspringbootfrontend;
+package org.androidspringbootfrontend.api;
+
+import org.androidspringbootfrontend.model.Manga;
 
 import java.util.List;
 
@@ -12,16 +14,16 @@ import retrofit2.http.Path;
 
 public interface MangaService {
 
-    @GET("mangas/")
+    @GET("mangas")
     Call<List<Manga>> findAll();
 
     @GET("mangas/{id}")
     Call<Manga> findById(@Path("id") long id);
 
-    @POST("mangas/")
+    @POST("mangas")
     Call<Manga> save(@Body Manga manga);
 
-    @PUT("mangas/")
+    @PUT("mangas/{id}")
     Call<Manga> update(@Body Manga manga);
 
     @DELETE("mangas/{id}")

@@ -1,4 +1,4 @@
-package org.androidspringbootfrontend;
+package org.androidspringbootfrontend.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,16 +14,19 @@ import androidx.annotation.Nullable;
 
 import com.squareup.picasso.Picasso;
 
+import org.androidspringbootfrontend.R;
+import org.androidspringbootfrontend.model.Manga;
+
 import java.util.List;
 
-public class CustomAdapter  extends ArrayAdapter<Manga> {
+public class CustomAdapter extends ArrayAdapter<Manga> {
 
     private final Context context;
     private final List<Manga> mangas;
 
 
     public CustomAdapter(@NonNull Context context, @NonNull List<Manga> mangas) {
-        super(context,0, mangas);
+        super(context, 0, mangas);
         this.context = context;
         this.mangas = mangas;
     }
@@ -45,3 +48,4 @@ public class CustomAdapter  extends ArrayAdapter<Manga> {
         return rowView;
     }
 }
+
