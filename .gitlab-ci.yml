@@ -31,7 +31,7 @@ maven_test_job:
     changes:
       - android-springboot-backend/**/*
   script:
-    - mvn $MAVEN_CLI_OPTS test -f ./android-springboot-backend/pom.xml
+    - mvn $MAVEN_CLI_OPTS test
 
 deploy_qualification_job:
   stage: deploy
