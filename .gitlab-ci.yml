@@ -42,8 +42,8 @@ deploy_qualification_job:
     - gem install dpl
     - dpl --provider=heroku --app=$HEROKU_APP_QUALIFICATION --api-key=$HEROKU_API_KEY
   environment:
-    name: qualification
-    url: $HEROKU_APPHOST
+    name: gitlab-heroku-env-qual
+    url: $HEROKU_APP_HOST
   only:
     - master
 
@@ -56,7 +56,7 @@ deploy_production_job:
     - gem install dpl
     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   environment:
-    name: production
+    name: gitlab-heroku-env-prod
     url: $HEROKU_APP_HOST
   when: manual
   only:
