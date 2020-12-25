@@ -25,14 +25,6 @@ maven_build_job:
     paths:
       - android-springboot-backend/target/*.jar
 
-maven_test_job:
-  stage: test
-  only:
-    changes:
-      - android-springboot-backend/**/*
-  script:
-    - mvn $MAVEN_CLI_OPTS test
-
 deploy_qualification_job:
   stage: deploy
   image: ruby:latest
