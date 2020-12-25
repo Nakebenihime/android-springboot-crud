@@ -27,7 +27,6 @@ public class DbSeeder implements CommandLineRunner {
         //DELETE ALL
         this.mangaRepository.deleteAll();
         log.info("mangas were deleted...");
-        log.info("mangas");
 
         //CREATE
         List<Manga> mangas = Arrays.asList(
