@@ -2,10 +2,10 @@
 FROM openjdk:16-jdk-alpine AS builder
 LABEL maintainer="maintainer@company.com"
 WORKDIR application
-COPY . .
+COPY android-springboot-backend .
 RUN ls -l
-#RUN sed -i 's/\r$//' mvnw && \
-RUN chmod +x mvnw
+RUN sed -e 's/\r$//' mvnw && \
+    chmod +x mvnw
 RUN ./mvnw clean install -DskipTests
 
 FROM openjdk:16-jdk-alpine AS runner
