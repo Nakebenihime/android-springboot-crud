@@ -1,6 +1,5 @@
 stages:
   - build
-  - test
   - deploy
 
 cache:
@@ -41,15 +40,12 @@ deploy_qualification_job:
 
 deploy_production_job:
   stage: deploy
-  image: docker:latest
-  services:
-    - docker:dind
-  variables:
-    DOCKER_DRIVER: overlay
+  image: ruby:latest
   script:
-    - docker login --username=_ --password=$HEROKU_CONTAINER_API_KEY $HEROKU_REGISTRY
-    - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_PRODUCTION/web -f android-springboot-backend/Dockerfile .
-    - docker push $HEROKU_REGISTRY/$HEROKU_APP_PRODUCTION/web
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   environment:
     name: gitlab-heroku-env-prod
     url: $HEROKU_APP_HOST
