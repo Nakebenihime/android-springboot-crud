@@ -9,5 +9,4 @@ RUN sed -i 's/\r$//' mvnw \
 
 FROM openjdk:16-jdk-alpine AS runner
 COPY --from=builder /application/target/*.jar /application/android-springboot-backend-0.0.1-SNAPSHOT.jar
-EXPOSE 8282
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/application/android-springboot-backend-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-Dserver.port=$PORT","-Djava.security.egd=file:/dev/./urandom","-jar","/application/android-springboot-backend-0.0.1-SNAPSHOT.jar"]
