@@ -5,6 +5,7 @@ spring:
     url: ${JDBC_DATABASE_URL}
     password: ${JDBC_DATABASE_PASSWORD}
     username: ${JDBC_DATABASE_USERNAME}
+    driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true
     generate-ddl: true
