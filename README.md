@@ -14,8 +14,8 @@ Platform as a Service               |`heroku` `heroku postgres` | https://www.he
 
 ## PREREQUISITES
 ### COMPONENTS
-- [JAVA](https://nakebenihime.github.io/windows/java/guide-openjdk16.html)
-- [MAVEN](https://nakebenihime.github.io/windows/java/guide-apache-maven3.html)
+- [JAVA](https://mario-dacosta.gitbook.io/nakebenihime/tutorials/java-technology-framework-and-tools/openjdk/how-to-install-openjdk-on-windows)
+- [MAVEN](https://mario-dacosta.gitbook.io/nakebenihime/tutorials/java-technology-framework-and-tools/apache-maven/how-to-install-apache-maven-3.8.x-on-windows)
 - [HEROKU](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 - [DOCKER](https://docs.docker.com/get-docker/)
 
